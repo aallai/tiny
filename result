@@ -1,0 +1,69 @@
+Enter a tiny expression.
+-> Evaluating 1 + 2
+3
+Enter a tiny expression.
+-> Evaluating 1 - 2
+-1
+Enter a tiny expression.
+-> Evaluating 2 * 3
+6
+Enter a tiny expression.
+-> Evaluating 6 / 3
+2
+Enter a tiny expression.
+-> Evaluating (1 + 2) - 3
+0
+Enter a tiny expression.
+-> Evaluating 1 + 2 * 3
+7
+Enter a tiny expression.
+-> Evaluating 1 - 2 + 3
+2
+Enter a tiny expression.
+-> Evaluating 2 / 2 - 3
+-2
+Enter a tiny expression.
+-> Evaluating 3 * (2 + 2)
+12
+Enter a tiny expression.
+-> Evaluating (1 + 2) - (3 - 4)
+4
+Enter a tiny expression.
+-> Evaluating 2 * 3 + 2 / 2
+7
+Enter a tiny expression.
+-> Evaluating 2 - (2 + 4) / 2
+-1
+Enter a tiny expression.
+-> Evaluating 2 * (2 + 4) - 1
+11
+Enter a tiny expression.
+-> Evaluating (2 * (2 + 4)) / 2
+6
+Enter a tiny expression.
+-> Evaluating (8 % 3) ** 2
+4
+Enter a tiny expression.
+-> Evaluating 0 - 3 ** 2
+-9
+Enter a tiny expression.
+-> Evaluating 10 - (4 + 3)
+3
+Enter a tiny expression.
+-> Evaluating 10 / (2 * 2)
+2
+Enter a tiny expression.
+-> Evaluating (10 * 2) % (3 * 1)
+2
+Enter a tiny expression.
+-> Evaluating a + 3 * 4
+a + 12
+Enter a tiny expression.
+-> Evaluating 0 * a
+0
+Enter a tiny expression.
+-> Evaluating 4 / 0
+integer division or modulo by zero
+Enter a tiny expression.
+-> Evaluating abs(0 - 3) ** 2
+9

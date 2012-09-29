@@ -1,0 +1,575 @@
+Created by PLY version 3.4 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> exp
+Rule 1     exp -> exp + exp
+Rule 2     exp -> exp - exp
+Rule 3     exp -> exp * exp
+Rule 4     exp -> exp / exp
+Rule 5     exp -> exp % exp
+Rule 6     exp -> exp E exp
+Rule 7     exp -> IDENTIFIER
+Rule 8     exp -> INTCONST
+Rule 9     exp -> ( exp )
+Rule 10    exp -> ABS ( exp )
+Rule 11    exp -> - exp
+
+Terminals, with rules where they appear
+
+%                    : 5
+(                    : 9 10
+)                    : 9 10
+*                    : 3
++                    : 1
+-                    : 2 11
+/                    : 4
+ABS                  : 10
+E                    : 6
+IDENTIFIER           : 7
+INTCONST             : 8
+error                : 
+
+Nonterminals, with rules where they appear
+
+exp                  : 1 1 2 2 3 3 4 4 5 5 6 6 9 10 11 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . exp
+    (1) exp -> . exp + exp
+    (2) exp -> . exp - exp
+    (3) exp -> . exp * exp
+    (4) exp -> . exp / exp
+    (5) exp -> . exp % exp
+    (6) exp -> . exp E exp
+    (7) exp -> . IDENTIFIER
+    (8) exp -> . INTCONST
+    (9) exp -> . ( exp )
+    (10) exp -> . ABS ( exp )
+    (11) exp -> . - exp
+
+    IDENTIFIER      shift and go to state 6
+    INTCONST        shift and go to state 5
+    (               shift and go to state 1
+    ABS             shift and go to state 3
+    -               shift and go to state 2
+
+    exp                            shift and go to state 4
+
+state 1
+
+    (9) exp -> ( . exp )
+    (1) exp -> . exp + exp
+    (2) exp -> . exp - exp
+    (3) exp -> . exp * exp
+    (4) exp -> . exp / exp
+    (5) exp -> . exp % exp
+    (6) exp -> . exp E exp
+    (7) exp -> . IDENTIFIER
+    (8) exp -> . INTCONST
+    (9) exp -> . ( exp )
+    (10) exp -> . ABS ( exp )
+    (11) exp -> . - exp
+
+    IDENTIFIER      shift and go to state 6
+    INTCONST        shift and go to state 5
+    (               shift and go to state 1
+    ABS             shift and go to state 3
+    -               shift and go to state 2
+
+    exp                            shift and go to state 7
+
+state 2
+
+    (11) exp -> - . exp
+    (1) exp -> . exp + exp
+    (2) exp -> . exp - exp
+    (3) exp -> . exp * exp
+    (4) exp -> . exp / exp
+    (5) exp -> . exp % exp
+    (6) exp -> . exp E exp
+    (7) exp -> . IDENTIFIER
+    (8) exp -> . INTCONST
+    (9) exp -> . ( exp )
+    (10) exp -> . ABS ( exp )
+    (11) exp -> . - exp
+
+    IDENTIFIER      shift and go to state 6
+    INTCONST        shift and go to state 5
+    (               shift and go to state 1
+    ABS             shift and go to state 3
+    -               shift and go to state 2
+
+    exp                            shift and go to state 8
+
+state 3
+
+    (10) exp -> ABS . ( exp )
+
+    (               shift and go to state 9
+
+
+state 4
+
+    (0) S' -> exp .
+    (1) exp -> exp . + exp
+    (2) exp -> exp . - exp
+    (3) exp -> exp . * exp
+    (4) exp -> exp . / exp
+    (5) exp -> exp . % exp
+    (6) exp -> exp . E exp
+
+    +               shift and go to state 11
+    -               shift and go to state 13
+    *               shift and go to state 12
+    /               shift and go to state 14
+    %               shift and go to state 10
+    E               shift and go to state 15
+
+
+state 5
+
+    (8) exp -> INTCONST .
+
+    +               reduce using rule 8 (exp -> INTCONST .)
+    -               reduce using rule 8 (exp -> INTCONST .)
+    *               reduce using rule 8 (exp -> INTCONST .)
+    /               reduce using rule 8 (exp -> INTCONST .)
+    %               reduce using rule 8 (exp -> INTCONST .)
+    E               reduce using rule 8 (exp -> INTCONST .)
+    $end            reduce using rule 8 (exp -> INTCONST .)
+    )               reduce using rule 8 (exp -> INTCONST .)
+
+
+state 6
+
+    (7) exp -> IDENTIFIER .
+
+    +               reduce using rule 7 (exp -> IDENTIFIER .)
+    -               reduce using rule 7 (exp -> IDENTIFIER .)
+    *               reduce using rule 7 (exp -> IDENTIFIER .)
+    /               reduce using rule 7 (exp -> IDENTIFIER .)
+    %               reduce using rule 7 (exp -> IDENTIFIER .)
+    E               reduce using rule 7 (exp -> IDENTIFIER .)
+    $end            reduce using rule 7 (exp -> IDENTIFIER .)
+    )               reduce using rule 7 (exp -> IDENTIFIER .)
+
+
+state 7
+
+    (9) exp -> ( exp . )
+    (1) exp -> exp . + exp
+    (2) exp -> exp . - exp
+    (3) exp -> exp . * exp
+    (4) exp -> exp . / exp
+    (5) exp -> exp . % exp
+    (6) exp -> exp . E exp
+
+    )               shift and go to state 16
+    +               shift and go to state 11
+    -               shift and go to state 13
+    *               shift and go to state 12
+    /               shift and go to state 14
+    %               shift and go to state 10
+    E               shift and go to state 15
+
+
+state 8
+
+    (11) exp -> - exp .
+    (1) exp -> exp . + exp
+    (2) exp -> exp . - exp
+    (3) exp -> exp . * exp
+    (4) exp -> exp . / exp
+    (5) exp -> exp . % exp
+    (6) exp -> exp . E exp
+
+    +               reduce using rule 11 (exp -> - exp .)
+    -               reduce using rule 11 (exp -> - exp .)
+    *               reduce using rule 11 (exp -> - exp .)
+    /               reduce using rule 11 (exp -> - exp .)
+    %               reduce using rule 11 (exp -> - exp .)
+    $end            reduce using rule 11 (exp -> - exp .)
+    )               reduce using rule 11 (exp -> - exp .)
+    E               shift and go to state 15
+
+  ! E               [ reduce using rule 11 (exp -> - exp .) ]
+  ! +               [ shift and go to state 11 ]
+  ! -               [ shift and go to state 13 ]
+  ! *               [ shift and go to state 12 ]
+  ! /               [ shift and go to state 14 ]
+  ! %               [ shift and go to state 10 ]
+
+
+state 9
+
+    (10) exp -> ABS ( . exp )
+    (1) exp -> . exp + exp
+    (2) exp -> . exp - exp
+    (3) exp -> . exp * exp
+    (4) exp -> . exp / exp
+    (5) exp -> . exp % exp
+    (6) exp -> . exp E exp
+    (7) exp -> . IDENTIFIER
+    (8) exp -> . INTCONST
+    (9) exp -> . ( exp )
+    (10) exp -> . ABS ( exp )
+    (11) exp -> . - exp
+
+    IDENTIFIER      shift and go to state 6
+    INTCONST        shift and go to state 5
+    (               shift and go to state 1
+    ABS             shift and go to state 3
+    -               shift and go to state 2
+
+    exp                            shift and go to state 17
+
+state 10
+
+    (5) exp -> exp % . exp
+    (1) exp -> . exp + exp
+    (2) exp -> . exp - exp
+    (3) exp -> . exp * exp
+    (4) exp -> . exp / exp
+    (5) exp -> . exp % exp
+    (6) exp -> . exp E exp
+    (7) exp -> . IDENTIFIER
+    (8) exp -> . INTCONST
+    (9) exp -> . ( exp )
+    (10) exp -> . ABS ( exp )
+    (11) exp -> . - exp
+
+    IDENTIFIER      shift and go to state 6
+    INTCONST        shift and go to state 5
+    (               shift and go to state 1
+    ABS             shift and go to state 3
+    -               shift and go to state 2
+
+    exp                            shift and go to state 18
+
+state 11
+
+    (1) exp -> exp + . exp
+    (1) exp -> . exp + exp
+    (2) exp -> . exp - exp
+    (3) exp -> . exp * exp
+    (4) exp -> . exp / exp
+    (5) exp -> . exp % exp
+    (6) exp -> . exp E exp
+    (7) exp -> . IDENTIFIER
+    (8) exp -> . INTCONST
+    (9) exp -> . ( exp )
+    (10) exp -> . ABS ( exp )
+    (11) exp -> . - exp
+
+    IDENTIFIER      shift and go to state 6
+    INTCONST        shift and go to state 5
+    (               shift and go to state 1
+    ABS             shift and go to state 3
+    -               shift and go to state 2
+
+    exp                            shift and go to state 19
+
+state 12
+
+    (3) exp -> exp * . exp
+    (1) exp -> . exp + exp
+    (2) exp -> . exp - exp
+    (3) exp -> . exp * exp
+    (4) exp -> . exp / exp
+    (5) exp -> . exp % exp
+    (6) exp -> . exp E exp
+    (7) exp -> . IDENTIFIER
+    (8) exp -> . INTCONST
+    (9) exp -> . ( exp )
+    (10) exp -> . ABS ( exp )
+    (11) exp -> . - exp
+
+    IDENTIFIER      shift and go to state 6
+    INTCONST        shift and go to state 5
+    (               shift and go to state 1
+    ABS             shift and go to state 3
+    -               shift and go to state 2
+
+    exp                            shift and go to state 20
+
+state 13
+
+    (2) exp -> exp - . exp
+    (1) exp -> . exp + exp
+    (2) exp -> . exp - exp
+    (3) exp -> . exp * exp
+    (4) exp -> . exp / exp
+    (5) exp -> . exp % exp
+    (6) exp -> . exp E exp
+    (7) exp -> . IDENTIFIER
+    (8) exp -> . INTCONST
+    (9) exp -> . ( exp )
+    (10) exp -> . ABS ( exp )
+    (11) exp -> . - exp
+
+    IDENTIFIER      shift and go to state 6
+    INTCONST        shift and go to state 5
+    (               shift and go to state 1
+    ABS             shift and go to state 3
+    -               shift and go to state 2
+
+    exp                            shift and go to state 21
+
+state 14
+
+    (4) exp -> exp / . exp
+    (1) exp -> . exp + exp
+    (2) exp -> . exp - exp
+    (3) exp -> . exp * exp
+    (4) exp -> . exp / exp
+    (5) exp -> . exp % exp
+    (6) exp -> . exp E exp
+    (7) exp -> . IDENTIFIER
+    (8) exp -> . INTCONST
+    (9) exp -> . ( exp )
+    (10) exp -> . ABS ( exp )
+    (11) exp -> . - exp
+
+    IDENTIFIER      shift and go to state 6
+    INTCONST        shift and go to state 5
+    (               shift and go to state 1
+    ABS             shift and go to state 3
+    -               shift and go to state 2
+
+    exp                            shift and go to state 22
+
+state 15
+
+    (6) exp -> exp E . exp
+    (1) exp -> . exp + exp
+    (2) exp -> . exp - exp
+    (3) exp -> . exp * exp
+    (4) exp -> . exp / exp
+    (5) exp -> . exp % exp
+    (6) exp -> . exp E exp
+    (7) exp -> . IDENTIFIER
+    (8) exp -> . INTCONST
+    (9) exp -> . ( exp )
+    (10) exp -> . ABS ( exp )
+    (11) exp -> . - exp
+
+    IDENTIFIER      shift and go to state 6
+    INTCONST        shift and go to state 5
+    (               shift and go to state 1
+    ABS             shift and go to state 3
+    -               shift and go to state 2
+
+    exp                            shift and go to state 23
+
+state 16
+
+    (9) exp -> ( exp ) .
+
+    +               reduce using rule 9 (exp -> ( exp ) .)
+    -               reduce using rule 9 (exp -> ( exp ) .)
+    *               reduce using rule 9 (exp -> ( exp ) .)
+    /               reduce using rule 9 (exp -> ( exp ) .)
+    %               reduce using rule 9 (exp -> ( exp ) .)
+    E               reduce using rule 9 (exp -> ( exp ) .)
+    $end            reduce using rule 9 (exp -> ( exp ) .)
+    )               reduce using rule 9 (exp -> ( exp ) .)
+
+
+state 17
+
+    (10) exp -> ABS ( exp . )
+    (1) exp -> exp . + exp
+    (2) exp -> exp . - exp
+    (3) exp -> exp . * exp
+    (4) exp -> exp . / exp
+    (5) exp -> exp . % exp
+    (6) exp -> exp . E exp
+
+    )               shift and go to state 24
+    +               shift and go to state 11
+    -               shift and go to state 13
+    *               shift and go to state 12
+    /               shift and go to state 14
+    %               shift and go to state 10
+    E               shift and go to state 15
+
+
+state 18
+
+    (5) exp -> exp % exp .
+    (1) exp -> exp . + exp
+    (2) exp -> exp . - exp
+    (3) exp -> exp . * exp
+    (4) exp -> exp . / exp
+    (5) exp -> exp . % exp
+    (6) exp -> exp . E exp
+
+    +               reduce using rule 5 (exp -> exp % exp .)
+    -               reduce using rule 5 (exp -> exp % exp .)
+    *               reduce using rule 5 (exp -> exp % exp .)
+    /               reduce using rule 5 (exp -> exp % exp .)
+    %               reduce using rule 5 (exp -> exp % exp .)
+    $end            reduce using rule 5 (exp -> exp % exp .)
+    )               reduce using rule 5 (exp -> exp % exp .)
+    E               shift and go to state 15
+
+  ! E               [ reduce using rule 5 (exp -> exp % exp .) ]
+  ! +               [ shift and go to state 11 ]
+  ! -               [ shift and go to state 13 ]
+  ! *               [ shift and go to state 12 ]
+  ! /               [ shift and go to state 14 ]
+  ! %               [ shift and go to state 10 ]
+
+
+state 19
+
+    (1) exp -> exp + exp .
+    (1) exp -> exp . + exp
+    (2) exp -> exp . - exp
+    (3) exp -> exp . * exp
+    (4) exp -> exp . / exp
+    (5) exp -> exp . % exp
+    (6) exp -> exp . E exp
+
+    +               reduce using rule 1 (exp -> exp + exp .)
+    -               reduce using rule 1 (exp -> exp + exp .)
+    $end            reduce using rule 1 (exp -> exp + exp .)
+    )               reduce using rule 1 (exp -> exp + exp .)
+    *               shift and go to state 12
+    /               shift and go to state 14
+    %               shift and go to state 10
+    E               shift and go to state 15
+
+  ! *               [ reduce using rule 1 (exp -> exp + exp .) ]
+  ! /               [ reduce using rule 1 (exp -> exp + exp .) ]
+  ! %               [ reduce using rule 1 (exp -> exp + exp .) ]
+  ! E               [ reduce using rule 1 (exp -> exp + exp .) ]
+  ! +               [ shift and go to state 11 ]
+  ! -               [ shift and go to state 13 ]
+
+
+state 20
+
+    (3) exp -> exp * exp .
+    (1) exp -> exp . + exp
+    (2) exp -> exp . - exp
+    (3) exp -> exp . * exp
+    (4) exp -> exp . / exp
+    (5) exp -> exp . % exp
+    (6) exp -> exp . E exp
+
+    +               reduce using rule 3 (exp -> exp * exp .)
+    -               reduce using rule 3 (exp -> exp * exp .)
+    *               reduce using rule 3 (exp -> exp * exp .)
+    /               reduce using rule 3 (exp -> exp * exp .)
+    %               reduce using rule 3 (exp -> exp * exp .)
+    $end            reduce using rule 3 (exp -> exp * exp .)
+    )               reduce using rule 3 (exp -> exp * exp .)
+    E               shift and go to state 15
+
+  ! E               [ reduce using rule 3 (exp -> exp * exp .) ]
+  ! +               [ shift and go to state 11 ]
+  ! -               [ shift and go to state 13 ]
+  ! *               [ shift and go to state 12 ]
+  ! /               [ shift and go to state 14 ]
+  ! %               [ shift and go to state 10 ]
+
+
+state 21
+
+    (2) exp -> exp - exp .
+    (1) exp -> exp . + exp
+    (2) exp -> exp . - exp
+    (3) exp -> exp . * exp
+    (4) exp -> exp . / exp
+    (5) exp -> exp . % exp
+    (6) exp -> exp . E exp
+
+    +               reduce using rule 2 (exp -> exp - exp .)
+    -               reduce using rule 2 (exp -> exp - exp .)
+    $end            reduce using rule 2 (exp -> exp - exp .)
+    )               reduce using rule 2 (exp -> exp - exp .)
+    *               shift and go to state 12
+    /               shift and go to state 14
+    %               shift and go to state 10
+    E               shift and go to state 15
+
+  ! *               [ reduce using rule 2 (exp -> exp - exp .) ]
+  ! /               [ reduce using rule 2 (exp -> exp - exp .) ]
+  ! %               [ reduce using rule 2 (exp -> exp - exp .) ]
+  ! E               [ reduce using rule 2 (exp -> exp - exp .) ]
+  ! +               [ shift and go to state 11 ]
+  ! -               [ shift and go to state 13 ]
+
+
+state 22
+
+    (4) exp -> exp / exp .
+    (1) exp -> exp . + exp
+    (2) exp -> exp . - exp
+    (3) exp -> exp . * exp
+    (4) exp -> exp . / exp
+    (5) exp -> exp . % exp
+    (6) exp -> exp . E exp
+
+    +               reduce using rule 4 (exp -> exp / exp .)
+    -               reduce using rule 4 (exp -> exp / exp .)
+    *               reduce using rule 4 (exp -> exp / exp .)
+    /               reduce using rule 4 (exp -> exp / exp .)
+    %               reduce using rule 4 (exp -> exp / exp .)
+    $end            reduce using rule 4 (exp -> exp / exp .)
+    )               reduce using rule 4 (exp -> exp / exp .)
+    E               shift and go to state 15
+
+  ! E               [ reduce using rule 4 (exp -> exp / exp .) ]
+  ! +               [ shift and go to state 11 ]
+  ! -               [ shift and go to state 13 ]
+  ! *               [ shift and go to state 12 ]
+  ! /               [ shift and go to state 14 ]
+  ! %               [ shift and go to state 10 ]
+
+
+state 23
+
+    (6) exp -> exp E exp .
+    (1) exp -> exp . + exp
+    (2) exp -> exp . - exp
+    (3) exp -> exp . * exp
+    (4) exp -> exp . / exp
+    (5) exp -> exp . % exp
+    (6) exp -> exp . E exp
+
+    +               reduce using rule 6 (exp -> exp E exp .)
+    -               reduce using rule 6 (exp -> exp E exp .)
+    *               reduce using rule 6 (exp -> exp E exp .)
+    /               reduce using rule 6 (exp -> exp E exp .)
+    %               reduce using rule 6 (exp -> exp E exp .)
+    $end            reduce using rule 6 (exp -> exp E exp .)
+    )               reduce using rule 6 (exp -> exp E exp .)
+    E               shift and go to state 15
+
+  ! E               [ reduce using rule 6 (exp -> exp E exp .) ]
+  ! +               [ shift and go to state 11 ]
+  ! -               [ shift and go to state 13 ]
+  ! *               [ shift and go to state 12 ]
+  ! /               [ shift and go to state 14 ]
+  ! %               [ shift and go to state 10 ]
+
+
+state 24
+
+    (10) exp -> ABS ( exp ) .
+
+    +               reduce using rule 10 (exp -> ABS ( exp ) .)
+    -               reduce using rule 10 (exp -> ABS ( exp ) .)
+    *               reduce using rule 10 (exp -> ABS ( exp ) .)
+    /               reduce using rule 10 (exp -> ABS ( exp ) .)
+    %               reduce using rule 10 (exp -> ABS ( exp ) .)
+    E               reduce using rule 10 (exp -> ABS ( exp ) .)
+    $end            reduce using rule 10 (exp -> ABS ( exp ) .)
+    )               reduce using rule 10 (exp -> ABS ( exp ) .)
+
